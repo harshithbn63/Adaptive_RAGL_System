@@ -1,167 +1,141 @@
-Adaptive Retrieval-Augmented Generation Learning (RAGL) System
-Project Overview
-The RAGL system implements a Retrieval-Augmented Generation (RAG) approach, designed for continuous learning with intelligent responses based on accumulated knowledge from various document formats. It provides a flexible framework for document processing, retrieval, and real-time learning.
+# Adaptive Retrieval-Augmented Generation Learning (RAGL) System  
+🎥 **[Project Demo on YouTube](https://youtu.be/gpIohWJ3XwA)**
 
-Key Features
-Multi-Format Document Processing
-PDF, Word (DOC/DOCX), Excel (XLS/XLSX)
+---
 
-PowerPoint (PPT/PPTX), CSV, JSON, XML
+## 📘 Project Overview  
+The **Adaptive RAGL System** is an intelligent learning assistant built on the Retrieval-Augmented Generation (RAG) framework. It continuously learns from user interactions, updates its knowledge base in real time, and delivers contextual responses using advanced Large Language Models (LLMs).  
 
-HTML, Text (TXT, MD)
 
-Intelligent Learning System
-Continuous updates to the knowledge base
+---
 
-Adaptive retrieval and response generation
+## 🔑 Key Features
 
-Vector-based information storage for efficient search
+### 🗃️ Multi-Format Document Processing  
+Supports ingestion and processing of diverse document formats:
+- PDF  
+- Word (DOC, DOCX)  
+- Excel (XLS, XLSX)  
+- PowerPoint (PPT, PPTX)  
+- CSV, JSON, XML, HTML  
+- Plain text (TXT, MD)
 
-Feedback-driven learning for continuous improvement
+### 🧠 Intelligent Learning Capabilities  
+- Continuous, incremental learning from documents and user inputs  
+- Adaptive retrieval using vector search  
+- Feedback-based system improvement  
+- Metadata tracking and event logging
 
-Modern User Interface
-Streamlit-based interactive chat interface
+### 💻 User-Friendly Interface  
+- Streamlit-based real-time chat UI  
+- Upload and manage documents via sidebar  
+- Learning events and session history tracking  
 
-Easy document upload and management
+---
 
-Real-time response generation and feedback tracking
+## ⚙️ Technical Architecture  
 
-Session management and learning event tracking
+### Core Components  
+**Vector Database (FAISS)**  
+- Efficient similarity search using vector embeddings  
+- Dynamic index updates  
 
-Technical Architecture
-Core Components
-Vector Database (FAISS)
+**Document Processor**  
+- Format-specific loaders and parsers  
+- Text chunking and metadata extraction  
 
-Optimized for fast vector storage and retrieval
+**RAG System**  
+- Combines retrieval and generation for accurate answers  
+- Updates knowledge dynamically  
 
-Dynamically updates indexes for real-time learning
+**LLM Integration**  
+- Google Gemini AI for generation  
+- LangChain for orchestration and prompt tuning  
 
-Similarity-based search for relevant responses
+---
 
-Document Processor
+## 🧰 Technology Stack
 
-Supports a wide range of document formats
+| Layer     | Tools Used                                                 |
+|-----------|------------------------------------------------------------|
+| Backend   | Python 3.12, FAISS, LangChain, PyPDF2, python-docx, pandas, python-pptx |
+| Frontend  | Streamlit, Custom CSS                                      |
+| LLM       | Google Gemini (via API)                                    |
 
-Extracts and processes content from documents
+---
 
-Manages document metadata and chunking
+## 🚀 Setup Instructions
 
-RAG System
+### 📋 Prerequisites  
+- Python 3.12+  
+- Google Gemini API Key  
+- Git
 
-Combines retrieval-augmented generation with continuous learning
-
-Regular updates to the knowledge base for context-aware responses
-
-LLM Integration
-
-Integration with Google Gemini AI
-
-LangChain framework for flexible prompt engineering and response generation
-
-Technology Stack
-Backend
-
-Python 3.12 or higher
-
-LangChain, FAISS, PyPDF2, python-docx, pandas, python-pptx
-
-Frontend
-
-Streamlit with custom CSS and interactive components
-
-Setup Instructions
-Prerequisites
-Python 3.12 or higher
-
-Google Gemini API key
-
-Git for version control
-
-Installation
-Clone the repository:
-
-bash
-Copy
-Edit
+### 📦 Installation  
+```bash
 git clone [your-repository-url]
 cd [repository-name]
-Install dependencies:
-
-bash
-Copy
-Edit
 pip install -r requirements.txt
-Configure environment:
+```
 
-Create a .env file in the root directory
+# 🔐 Environment Configuration
+Create a `.env` file in the root directory and add:
 
-Add your Gemini API key:
-
-bash
-Copy
-Edit
+```env
 GEMINI_API_KEY=your_gemini_api_key_here
-Running the Application
-Start the application:
+```
 
-bash
-Copy
-Edit
+# ▶️ Running the Application
+
+```bash
 python app.py
-Access the interface:
+```
+Then visit: http://localhost:8501
 
-Open your web browser
+## 📚 Usage Guide
 
-Navigate to http://localhost:8501
+### 📤 Upload Documents  
+Upload files via the sidebar. The system extracts content and indexes it for retrieval.
 
-Usage Guide
-Document Upload
-Use the sidebar to upload supported documents
+### 💬 Chat and Retrieve  
+Ask questions using the chat interface. The system retrieves relevant chunks and generates answers using the Gemini LLM.
 
-Automatic content extraction and indexing
+### 📈 Feedback and Learning  
+Provide relevance feedback on the retrieved documents. The system uses it to improve future results and logs learning events.
 
-Interaction
-Type questions into the chat interface
+### 🧾 Session Management  
+Save and load past conversations, track new knowledge, and manage your knowledge base.
 
-View retrieved documents used for generating responses
 
-Provide feedback to improve future responses
+## 📁 Project Structure
 
-Track learning events for system updates
-
-Session Management
-Save conversation history
-
-Export learning events for analysis
-
-Manage knowledge base updates
-
-Project Structure
-
+```bash
 ml/
-├── app.py                 # Main application entry point
-├── requirements.txt       # Project dependencies
-├── .env                   # Environment configuration
-├── README.md              # Project documentation
-├── data/                  # Data storage
-│   ├── sessions/          # Session data
-│   └── vector_db/         # Vector database files
-└── src/                   # Source code
-    ├── components/        # Core components
+├── app.py                 # Main application
+├── requirements.txt       # Dependencies
+├── .env                   # Environment variables
+├── README.md              # Documentation
+├── data/
+│   ├── sessions/          # Saved sessions
+│   └── vector_db/         # FAISS index and vectors
+└── src/
+    ├── components/
     │   ├── ragl_system.py
     │   ├── vector_db.py
     │   └── learner.py
-    └── utils/             # Utility functions
+    └── utils/
         └── config.py
-Future Enhancements
-Enhanced document processing capabilities
 
-Advanced machine learning and AI algorithms for better response generation
+```
+## 🔮 Future Enhancements
 
-Support for additional file formats
+- 🧾 OCR and image-based text extraction  
+- 🧠 Personalized learning profiles  
+- ⚡ Faster response times with caching  
+- 🗃️ Better document classification  
+- 📡 Real-time API support  
 
-Improved performance through optimizations and scaling
+## 🤝 Contributing
 
-Contributing
-Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests to enhance the project.
+Open to feature suggestions, bug reports, or pull requests. Let’s build together!
 
